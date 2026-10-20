@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIKE MEN | Faqat Erkaklar va O'g'il Bolalar Kolleksiyasi 2026</title>
+  <meta name="description" content="Nike rasmiy erkaklar va o'g'il bolalar kiyimlari va krossovkalari. 50 ta original oyoq kiyim, 102 ta kuzgi, yozgi va qishgi sport kiyimlari.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23111111' d='M21.707 5.293a1 1 0 0 0-1.414 0L9 16.586l-4.293-4.293a1 1 0 0 0-1.414 1.414l5 5a1 1 0 0 0 1.414 0l12-12a1 1 0 0 0 0-1.414z'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-bar" id="topBar">
+    <div class="top-bar-marquee">
+      <span class="top-bar-badge">YANGILIK 2026</span>
+      <span>⚡ FAQAT ERKAKLAR VA O'G'IL BOLALAR UCHUN MAXSUS KOLLEKSIYA!</span>
+      <span class="extra-info">| $50 dan yuqori bepul yetkazib berish | Promokod: <strong>NIKE2026</strong> (-10%)</span>
+    </div>
+    <div class="top-bar-controls">
+      <button class="top-bar-theme-badge" id="topBarThemeBtn" title="Fon ko'rinishini almashtirish">
+        <span id="topThemeText">☀️ Yorug' fon</span>
+      </button>
+      <div class="currency-switcher">
+        <button class="currency-btn active" data-currency="USD">$ USD</button>
+        <button class="currency-btn" data-currency="UZS">SO'M UZS</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Site Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-wrapper" title="Nike Men Uzbekistan">
+        <svg class="swoosh-icon" viewBox="0 0 24 24">
+          <path d="M21.71 4.54c-.16-.36-.5-.54-.86-.54-.42 0-3.3.06-7.05 3.01C9.65 10.28 6.4 13.9 4.1 16.63c-1.39 1.65-2.22 2.65-2.58 3.1-.31.39-.12.87.35.87.16 0 1.25-.09 3.06-.9 2.75-1.22 7.72-4.04 12.39-8.49 3.65-3.48 4.74-6.09 4.39-6.67z"/>
+        </svg>
+        <span class="jordan-badge">MEN • 2026</span>
+      </a>
+
+      <!-- Navigation Tabs -->
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li>
+            <button class="nav-link active" data-category="all">
+              <span>Barchasi</span>
+              <span class="nav-count">(152)</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-category="shoes">
+              <span>👟 Oyoq kiyimlar</span>
+              <span class="nav-count">(50)</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-category="autumn">
+              <span>🍂 Kuzgi</span>
+              <span class="nav-count">(34)</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-category="summer">
+              <span>☀️ Yozgi</span>
+              <span class="nav-count">(34)</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-category="winter">
+              <span>❄️ Qishgi</span>
+              <span class="nav-count">(34)</span>
+            </button>
+          </li>
+          <li>
+            <button class="nav-link" data-category="bestseller">
+              <span>⭐ Bestsellerlar</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Search & Action Buttons -->
+      <div class="header-actions">
+        <!-- Live Search -->
+        <div class="search-box">
+          <svg class="search-icon-svg" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Model, kiyim, krossovka..." autocomplete="off">
+          <button id="searchClearBtn" class="search-clear-btn" title="Tozalash">&times;</button>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button class="action-btn theme-toggle-btn" id="themeToggleBtn" title="Fon: Qora / Yorug'" aria-label="Fonni almashtirish">
+          <span class="theme-icon-sun">☀️</span>
+          <span class="theme-icon-moon">🌙</span>
+        </button>
+
+        <!-- Wishlist Button -->
+        <button class="action-btn" id="wishlistBtn" title="Sevimlilar ro'yxati">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span class="badge-count" id="wishlistBadge">0</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button class="action-btn" id="cartBtn" title="Savatcha">
+          <svg viewBox="0 0 24 24">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+          <span class="badge-count" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-section">
+    <!-- Atmospheric Animated Background -->
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-glow hero-glow-3"></div>
+    <div class="hero-watermark-text" aria-hidden="true">JUST DO IT.</div>
+    <div class="hero-swoosh-bg-wrap" aria-hidden="true">
+      <svg class="hero-swoosh-bg" viewBox="0 0 24 24">
+        <path d="M21.71 4.54c-.16-.36-.5-.54-.86-.54-.42 0-3.3.06-7.05 3.01C9.65 10.28 6.4 13.9 4.1 16.63c-1.39 1.65-2.22 2.65-2.58 3.1-.31.39-.12.87.35.87.16 0 1.25-.09 3.06-.9 2.75-1.22 7.72-4.04 12.39-8.49 3.65-3.48 4.74-6.09 4.39-6.67z"/>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <div class="hero-main-grid">
+        <!-- Hero Text & Filters Column -->
+        <div class="hero-text-col">
+          <div class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            <span>Faqat Erkaklar va O'g'il Bolalar Do'koni</span>
+          </div>
+          <h1 class="hero-title">
+            JUST DO IT.
+            <span>ERKAKLAR MAXSUS KOLLEKSIYASI</span>
+          </h1>
+          <p class="hero-subtitle">
+            Dunyoning eng ilg'or sport va ko'cha modasi. 50 ta mashhur poyabzal va 102 ta barcha fasl uchun moslashtirilgan original kiyimlar assortimenti.
+          </p>
+
+          <!-- Quick Category Buttons -->
+          <div class="hero-quick-filters">
+            <button class="quick-filter-btn active" data-category="all">
+              <span>Barcha mahsulotlar</span>
+              <strong>(152)</strong>
+            </button>
+            <button class="quick-filter-btn" data-category="shoes">
+              <span>👟 Oyoq kiyimlar</span>
+              <strong>(50)</strong>
+            </button>
+            <button class="quick-filter-btn" data-category="autumn">
+              <span>🍂 Kuzgi kiyimlar</span>
+              <strong>(34)</strong>
+            </button>
+            <button class="quick-filter-btn" data-category="summer">
+              <span>☀️ Yozgi kiyimlar</span>
+              <strong>(34)</strong>
+            </button>
+            <button class="quick-filter-btn" data-category="winter">
+              <span>❄️ Qishgi kiyimlar</span>
+              <strong>(34)</strong>
+            </button>
+          </div>
+        </div>
+
+        <!-- Nike Cinema Video Showcase Column (100% Strictly Men & Boys - Zero Girls) -->
+        <div class="hero-video-col">
+          <div class="video-showcase-card">
+            <!-- Video Card Topbar -->
+            <div class="video-card-topbar">
+              <div class="video-topbar-left">
+                <span class="video-live-dot"></span>
+                <span class="video-badge-tag">NIKE MEN CINEMA • AIR JORDAN 4K</span>
+              </div>
+              <div class="video-topbar-right">
+                <span class="video-active-title" id="videoActiveTitle">Nike Air Jordan 1 Chicago: Kinematik Erkaklar Roligi</span>
+                <button type="button" class="video-sound-toggle-btn" id="videoMuteToggleBtn" title="Ovozni yoqish / o'chirish">
+                  <span id="soundIcon">🔇</span>
+                  <span id="soundText">Ovozsiz</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Video Responsive Player Wrapper (Native HTML5 Video - Strictly Men/Sneakers, 100% Girls-Free) -->
+            <div class="video-embed-wrapper">
+              <video
+                id="heroVideoPlayer"
+                class="hero-native-video"
+                src="videos/nike-commercial.mp4"
+                poster="https://images.unsplash.com/photo-1552346154-21d32810aba3?w=1200&q=80"
+                autoplay
+                muted
+                loop
+                playsinline
+                controls>
+                <source src="videos/nike-commercial.mp4" type="video/mp4">
+                <source src="videos/nike-sneakers-run.mp4" type="video/mp4">
+                Sizning brauzeringiz videoni qo'llab-quvvatlamaydi.
+              </video>
+              <iframe
+                id="heroVideoIframe"
+                style="display:none;"
+                title="Nike Maykl Jordan Yakkaxon Roligi"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+              <div class="video-card-watermark" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M21.71 4.54c-.16-.36-.5-.54-.86-.54-.42 0-3.3.06-7.05 3.01C9.65 10.28 6.4 13.9 4.1 16.63c-1.39 1.65-2.22 2.65-2.58 3.1-.31.39-.12.87.35.87.16 0 1.25-.09 3.06-.9 2.75-1.22 7.72-4.04 12.39-8.49 3.65-3.48 4.74-6.09 4.39-6.67z"/></svg>
+              </div>
+            </div>
+
+            <!-- Interactive Video Playlist Selector (Strictly Men/Shoes Only - 0 Girls) -->
+            <div class="video-playlist-bar">
+              <div class="video-playlist-header">
+                <span class="playlist-label">🎬 Faqat erkaklar Nike roliklari (Qizlar mutlaqo yo'q):</span>
+                <span class="video-badge-men-only">✓ 100% FAQAT ERKAKLAR</span>
+              </div>
+              <div class="video-playlist-row">
+                <button class="video-playlist-item active" data-type="local" data-src="videos/nike-commercial.mp4" data-title="Nike Air Jordan 1 Chicago: Kinematik Erkaklar Roligi" type="button">
+                  <span class="vid-num">01</span>
+                  <div class="vid-info">
+                    <span class="vid-name">Air Jordan 1 🏀</span>
+                    <span class="vid-star">Chicago Men's Edition</span>
+                  </div>
+                </button>
+                <button class="video-playlist-item" data-type="local" data-src="videos/nike-sneakers-run.mp4" data-title="Nike Running & Speed: Tezkor Erkaklar Krossi" type="button">
+                  <span class="vid-num">02</span>
+                  <div class="vid-info">
+                    <span class="vid-name">Nike Speed Run ⚡</span>
+                    <span class="vid-star">Dinamik Sport Tezligi</span>
+                  </div>
+                </button>
+                <button class="video-playlist-item" data-type="youtube" data-yt="45mMioJ5szc" data-title="Maykl Jordan: Failure (Yakkaxon Motivatsion Rolik)" type="button">
+                  <span class="vid-num">03</span>
+                  <div class="vid-info">
+                    <span class="vid-name">Maykl Jordan 🏆</span>
+                    <span class="vid-star">Jordan Yakkaxon Afsona</span>
+                  </div>
+                </button>
+                <button class="video-playlist-item" data-type="local" data-src="videos/nike-commercial.mp4" data-title="Nike Air Jordan Jumpman: Sof Sport Fasoni" type="button">
+                  <span class="vid-num">04</span>
+                  <div class="vid-info">
+                    <span class="vid-name">Jumpman Retro 🔥</span>
+                    <span class="vid-star">Faqat O'g'il Bolalar Uslubi</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="hero-stats-row">
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">50 ta</div>
+          <div class="hero-stat-label">Jordan, Air Max, Dunk & Butsa krossovkalar</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">102 ta</div>
+          <div class="hero-stat-label">Kuzgi, Yozgi va Qishgi erkaklar kiyimlari</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Faqat erkaklar va o'g'il bolalar fasoni</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">0 ta</div>
+          <div class="hero-stat-label">Qizlar narsasi mutlaqo mavjud emas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Catalog Section -->
+  <main class="main-container" id="catalogSection">
+    <!-- Atmospheric Catalog Ambient Background -->
+    <div class="catalog-bg-decor" aria-hidden="true">
+      <div class="catalog-glow catalog-glow-1"></div>
+      <div class="catalog-glow catalog-glow-2"></div>
+      <div class="catalog-glow catalog-glow-3"></div>
+      <svg class="catalog-watermark-swoosh" viewBox="0 0 24 24">
+        <path d="M21.71 4.54c-.16-.36-.5-.54-.86-.54-.42 0-3.3.06-7.05 3.01C9.65 10.28 6.4 13.9 4.1 16.63c-1.39 1.65-2.22 2.65-2.58 3.1-.31.39-.12.87.35.87.16 0 1.25-.09 3.06-.9 2.75-1.22 7.72-4.04 12.39-8.49 3.65-3.48 4.74-6.09 4.39-6.67z"/>
+      </svg>
+    </div>
+    
+    <!-- Controls & Filters Bar -->
+    <div class="control-bar">
+      <div class="control-bar-top">
+        <!-- Category Filter Tabs -->
+        <div class="catalog-tabs">
+          <button class="catalog-tab active" data-category="all">Barchasi (152)</button>
+          <button class="catalog-tab" data-category="shoes">👟 Oyoq kiyimlar (50)</button>
+          <button class="catalog-tab" data-category="autumn">🍂 Kuzgi (34)</button>
+          <button class="catalog-tab" data-category="summer">☀️ Yozgi (34)</button>
+          <button class="catalog-tab" data-category="winter">❄️ Qishgi (34)</button>
+          <button class="catalog-tab" data-category="bestseller">⭐ Bestsellerlar</button>
+        </div>
+
+        <!-- Right Controls (Sort & Filter toggle) -->
+        <div class="control-bar-right">
+          <select id="sortSelect" class="sort-select" aria-label="Saralash">
+            <option value="featured">✨ Tavsiya etilgan</option>
+            <option value="price-asc">💵 Narx: Avval arzonroq</option>
+            <option value="price-desc">💎 Narx: Avval qimmatroq</option>
+            <option value="rating">★ Yuqori reytingli</option>
+            <option value="name">🔤 Nomi bo'yicha (A-Z)</option>
+          </select>
+
+          <button class="filter-toggle-btn" id="filterToggleBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+            </svg>
+            <span>Qo'shimcha filtrlar</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Expandable Subfilters Panel -->
+      <div class="filter-drawer-panel" id="filterDrawerPanel" style="display: none;">
+        <!-- SubCategory Filter -->
+        <div class="filter-group">
+          <span class="filter-group-title">Turi bo'yicha:</span>
+          <div class="filter-pills" id="subCategoryPills">
+            <button class="pill-btn active" data-sub="all">Hammasi</button>
+            <button class="pill-btn" data-sub="sneakers">Krossovkalar</button>
+            <button class="pill-btn" data-sub="running">Yugurish</button>
+            <button class="pill-btn" data-sub="basketball">Basketbol</button>
+            <button class="pill-btn" data-sub="boots">Etik va botinkalar</button>
+            <button class="pill-btn" data-sub="hoodie">Xudi va Tolstovka</button>
+            <button class="pill-btn" data-sub="jacket">Kurtka va Puxovik</button>
+            <button class="pill-btn" data-sub="tshirt">Futbolka va Mayka</button>
+            <button class="pill-btn" data-sub="shorts">Shortilar</button>
+            <button class="pill-btn" data-sub="pants">Sport shimlar</button>
+          </div>
+        </div>
+
+        <!-- Size Filter -->
+        <div class="filter-group">
+          <span class="filter-group-title">O'lcham bo'yicha:</span>
+          <div class="filter-pills" id="sizePills">
+            <button class="pill-btn active" data-size="all">Barchasi</button>
+            <button class="pill-btn" data-size="40">40</button>
+            <button class="pill-btn" data-size="41">41</button>
+            <button class="pill-btn" data-size="42">42</button>
+            <button class="pill-btn" data-size="43">43</button>
+            <button class="pill-btn" data-size="44">44</button>
+            <button class="pill-btn" data-size="45">45</button>
+            <button class="pill-btn" data-size="M">M</button>
+            <button class="pill-btn" data-size="L">L</button>
+            <button class="pill-btn" data-size="XL">XL</button>
+            <button class="pill-btn" data-size="XXL">XXL</button>
+          </div>
+        </div>
+
+        <button class="reset-filters-btn" id="resetFiltersBtn">Filtrlarni tozalash</button>
+      </div>
+    </div>
+
+    <!-- Results Info Bar -->
+    <div class="results-info-bar">
+      <div class="results-count" id="resultsCount">
+        Natija: <strong>152</strong> ta erkaklar mahsuloti
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid" id="productsGrid">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Load More Container -->
+    <div class="load-more-container" id="loadMoreContainer">
+      <button class="load-more-btn" id="loadMoreBtn">Yana 24 ta ko'rsatish</button>
+      <div class="load-more-info" id="loadMoreInfo"></div>
+    </div>
+  </main>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="benefits-container">
+      <div class="benefit-card">
+        <div class="benefit-icon">🛡️</div>
+        <div>
+          <h4 class="benefit-title">100% Original Nike</h4>
+          <p class="benefit-desc">Barcha mahsulotlar rasmiy zavod sertifikatlariga ega va sifat kafolatlangan.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🚀</div>
+        <div>
+          <h4 class="benefit-title">Tezkor Yetkazib Berish</h4>
+          <p class="benefit-desc">Toshkent bo'ylab 24 soat ichida, viloyatlarga 2-3 kunda eshikkacha yetkazamiz.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔄</div>
+        <div>
+          <h4 class="benefit-title">14 Kun Ichida Almashtirish</h4>
+          <p class="benefit-desc">O'lcham to'g'ri kelmasa yoki yoqmasa, muammosiz almashtirib beramiz.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">👑</div>
+        <div>
+          <h4 class="benefit-title">Faqat Erkaklar Uchun</h4>
+          <p class="benefit-desc">Katalogimizda faqat erkaklar va o'g'il bolalar kiyimlari saralangan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Detail Modal -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="detailModalClose">&times;</button>
+      <div id="detailModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer Backdrop -->
+  <div class="drawer-backdrop" id="cartBackdrop"></div>
+
+  <!-- Cart Drawer -->
+  <aside class="side-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+        </svg>
+        <span>Savatcha</span>
+      </div>
+      <button class="modal-close-btn" id="cartCloseBtn" style="position:static;">&times;</button>
+    </div>
+
+    <div class="drawer-body" id="cartItemsList"></div>
+
+    <div class="drawer-footer">
+      <div class="promo-row">
+        <input type="text" class="promo-input" id="promoInput" placeholder="Promokod (masalan: NIKE2026)">
+        <button class="promo-apply-btn" id="promoApplyBtn">Qo'llash</button>
+      </div>
+
+      <div class="summary-row">
+        <span>Mahsulotlar qiymati:</span>
+        <span id="cartSubtotal">$0</span>
+      </div>
+      <div class="summary-row" id="cartDiscountRow" style="display:none; color:var(--nike-green);">
+        <span>Chegirma:</span>
+        <span id="cartDiscountVal">-$0</span>
+      </div>
+      <div class="summary-row">
+        <span>Yetkazib berish:</span>
+        <span style="color:var(--nike-green); font-weight:700;">BEPUL</span>
+      </div>
+      <div class="summary-row total">
+        <span>Jami summa:</span>
+        <span id="cartTotal">$0</span>
+      </div>
+
+      <button class="checkout-btn" id="checkoutBtn">Buyurtmani rasmiylashtirish</button>
+    </div>
+  </aside>
+
+  <!-- Wishlist Drawer -->
+  <aside class="side-drawer" id="wishlistDrawer">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--nike-red)">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span>Sevimlilar ro'yxati</span>
+      </div>
+      <button class="modal-close-btn" id="wishlistCloseBtn" style="position:static;">&times;</button>
+    </div>
+
+    <div class="drawer-body" id="wishlistItemsList"></div>
+  </aside>
+
+  <!-- Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-card" style="max-width: 580px; padding: 30px;">
+      <button class="modal-close-btn" id="checkoutModalClose">&times;</button>
+      
+      <h2 style="font-size: 1.5rem; font-weight: 900; margin-bottom: 8px;">Buyurtmani rasmiylashtirish</h2>
+      <p style="color: #6b7280; font-size: 0.88rem; margin-bottom: 20px;">
+        To'lov summasi: <strong id="checkoutTotalDisplay" style="color:var(--nike-black); font-size:1.1rem;"></strong>
+      </p>
+
+      <form id="checkoutForm" class="checkout-form">
+        <div class="form-group">
+          <label for="custName">Ismingiz va familiyangiz *</label>
+          <input type="text" id="custName" class="form-control" placeholder="Masalan: Sardor Aliyev" required>
+        </div>
+
+        <div class="form-group">
+          <label for="custPhone">Telefon raqamingiz *</label>
+          <input type="tel" id="custPhone" class="form-control" placeholder="+998 90 123 45 67" required>
+        </div>
+
+        <div class="form-group">
+          <label for="custCity">Shahar / Viloyat *</label>
+          <select id="custCity" class="form-control">
+            <option value="Toshkent shahri">Toshkent shahri</option>
+            <option value="Samarqand">Samarqand viloyati</option>
+            <option value="Farg'ona">Farg'ona viloyati</option>
+            <option value="Andijon">Andijon viloyati</option>
+            <option value="Namangan">Namangan viloyati</option>
+            <option value="Buxoro">Buxoro viloyati</option>
+            <option value="Qashqadaryo">Qashqadaryo viloyati</option>
+            <option value="Xorazm">Xorazm viloyati</option>
+            <option value="Navoiy">Navoiy viloyati</option>
+            <option value="Surxondaryo">Surxondaryo viloyati</option>
+            <option value="Jizzax">Jizzax viloyati</option>
+            <option value="Sirdaryo">Sirdaryo viloyati</option>
+            <option value="Qoraqalpog'iston">Qoraqalpog'iston Respublikasi</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="custAddress">Yetkazib berish manzili *</label>
+          <input type="text" id="custAddress" class="form-control" placeholder="Tuman, ko'cha, uy yoki xonadon raqami" required>
+        </div>
+
+        <div class="form-group">
+          <label>To'lov usuli:</label>
+          <div class="payment-options">
+            <div class="payment-radio-card active">
+              <input type="radio" name="payMethod" value="cash" checked id="payCash">
+              <label for="payCash" style="cursor:pointer;">💵 Naqd pul (kuryerga)</label>
+            </div>
+            <div class="payment-radio-card">
+              <input type="radio" name="payMethod" value="payme" id="payPayme">
+              <label for="payPayme" style="cursor:pointer;">🔹 Payme / Click</label>
+            </div>
+            <div class="payment-radio-card">
+              <input type="radio" name="payMethod" value="card" id="payCard">
+              <label for="payCard" style="cursor:pointer;">💳 Uzcard / Humo</label>
+            </div>
+            <div class="payment-radio-card">
+              <input type="radio" name="payMethod" value="visa" id="payVisa">
+              <label for="payVisa" style="cursor:pointer;">🌐 Visa / Mastercard</label>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" style="margin-top: 10px; padding: 14px;">
+          Buyurtmani tasdiqlash
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Confirmation Modal -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-card" style="max-width: 480px; padding: 40px; text-align: center;">
+      <div style="font-size: 3.5rem; color: #10b981; margin-bottom: 12px;">✓</div>
+      <h2 style="font-size: 1.6rem; font-weight: 900; margin-bottom: 8px;">Buyurtmangiz qabul qilindi!</h2>
+      <p style="color: #4b5563; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">
+        Rahmat! Sizning buyurtmangiz muvaffaqiyatli rasmiylashtirildi. Tez orada menejerimiz siz bilan bog'lanadi.
+      </p>
+      
+      <div style="background: #f3f4f6; padding: 16px; border-radius: 12px; margin-bottom: 24px;">
+        <span style="font-size: 0.8rem; color: #6b7280; text-transform: uppercase; font-weight: 700;">Buyurtma raqami:</span>
+        <div id="successOrderNum" style="font-size: 1.4rem; font-weight: 900; color: var(--nike-black); margin-top: 4px;">NK-000000</div>
+      </div>
+
+      <button class="btn-primary" id="successModalClose" style="width: 100%;">
+        Xaridni davom ettirish
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top-grid">
+        <div>
+          <div class="footer-brand-title">NIKE MEN 2026</div>
+          <p class="footer-brand-desc">
+            Dunyoning eng yetakchi sport kiyimlari va krossovkalari. Faqat erkaklar va o'g'il bolalar uchun maxsus tanlangan 152 ta original mahsulot.
+          </p>
+          <div style="margin-top: 20px; display: flex; gap: 12px;">
+            <span style="background:#262626; padding:8px 14px; border-radius:20px; font-size:0.8rem; font-weight:700;">👟 50 ta Poyabzal</span>
+            <span style="background:#262626; padding:8px 14px; border-radius:20px; font-size:0.8rem; font-weight:700;">👕 102 ta Kiyim</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Oyoq Kiyimlar</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="event.preventDefault(); NikeApp.openCategory && NikeApp.openCategory('shoes');">Air Jordan Retro</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Air Force 1</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Nike Dunk Low</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Air Max Plus & Dn</a></li>
+            <li><a href="#" onclick="event.preventDefault();">ZoomX Vaporfly & Pegasus</a></li>
+            <li><a href="#" onclick="event.preventDefault();">Qishki charm etiklar</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Mavsumiy Kiyimlar</h4>
+          <ul class="footer-links">
+            <li><a href="#">🍂 Kuzgi Tech Fleece & Xudi</a></li>
+            <li><a href="#">☀️ Yozgi Dri-FIT Futbolkalar</a></li>
+            <li><a href="#">☀️ Yozgi French Terry Shortilar</a></li>
+            <li><a href="#">❄️ Qishgi Storm-FIT Puxoviklar</a></li>
+            <li><a href="#">❄️ Nike ACG Tog' Kurtkalari</a></li>
+            <li><a href="#">❄️ Issiq Termo Lozinalar</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Mijozlarga Xizmat</h4>
+          <ul class="footer-links">
+            <li><a href="#">Yetkazib berish shartlari</a></li>
+            <li><a href="#">To'lov usullari (Payme/Click)</a></li>
+            <li><a href="#">O'lchamlar jadvali (Size Guide)</a></li>
+            <li><a href="#">Mahsulotni qaytarish</a></li>
+            <li><a href="#">Aloqa: +998 71 200 00 26</a></li>
+            <li><a href="#">Telegram: @nike_men_uz</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Nike, Inc. Barcha huquqlar himoyalangan. Faqat erkaklar va o'g'il bolalar kolleksiyasi.</div>
+        <div style="display:flex; gap:20px;">
+          <a href="#" style="color:#737373; text-decoration:none;">Maxfiylik siyosati</a>
+          <a href="#" style="color:#737373; text-decoration:none;">Foydalanish shartlari</a>
+          <a href="#" style="color:#737373; text-decoration:none;">Kafolat</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
