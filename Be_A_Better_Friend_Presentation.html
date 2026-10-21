@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BE A BETTER FRIEND! | Grade 11 BSB-1 Project Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(22, 30, 49, 0.85);
+      --card-border: rgba(148, 163, 184, 0.15);
+      --accent-blue: #38bdf8;
+      --accent-indigo: #6366f1;
+      --accent-amber: #f59e0b;
+      --accent-emerald: #10b981;
+      --accent-purple: #c084fc;
+      --accent-rose: #f472b6;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Progress Bar */
+    .progress-bar-container {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 50;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Presentation Frame */
+    .deck-container {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 40px;
+    }
+
+    .slide {
+      position: absolute;
+      width: 92%;
+      max-width: 1200px;
+      height: 84vh;
+      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 50%),
+                  radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.08), transparent 50%),
+                  var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 40px 48px;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: scale(0.96) translateY(12px);
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Slide Header */
+    .slide-header {
+      margin-bottom: 24px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 5px 14px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .slide-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .slide-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    /* Slide 1 - Cover */
+    .cover-center {
+      margin: auto 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .cover-badge {
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #a5b4fc;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .cover-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .cover-sub {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      max-width: 650px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .slogan-card {
+      background: rgba(245, 158, 11, 0.08);
+      border: 2px solid rgba(245, 158, 11, 0.5);
+      border-radius: 18px;
+      padding: 18px 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.2);
+    }
+    .slogan-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--accent-amber);
+      margin-bottom: 4px;
+    }
+    .slogan-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      width: 100%;
+      margin-top: auto;
+    }
+    .team-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+    .team-card .role-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin-bottom: 4px;
+    }
+    .team-card .role-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Cards & Grids */
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      flex: 1;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      flex: 1;
+    }
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 18px;
+      flex: 1;
+    }
+    .grid-split {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      flex: 1;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .info-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--card-accent, var(--accent-blue));
+    }
+
+    /* Rule Row */
+    .rules-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+      justify-content: space-around;
+    }
+    .rule-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 14px 20px;
+      transition: transform 0.2s;
+    }
+    .rule-row:hover {
+      transform: translateX(4px);
+    }
+    .rule-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid var(--rule-accent, var(--accent-blue));
+      color: var(--rule-accent, var(--accent-blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .rule-content h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: #fff;
+    }
+    .rule-content p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Mission Statement */
+    .statement-box {
+      background: rgba(56, 189, 248, 0.06);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 16px;
+      padding: 16px 24px;
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+      line-height: 1.5;
+      font-style: italic;
+      color: #e2e8f0;
+    }
+
+    /* Speech Card */
+    .speaker-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .speaker-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .speaker-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--speaker-color, var(--accent-blue));
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .speaker-speech {
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: #f1f5f9;
+      font-style: italic;
+    }
+
+    /* Grammar Card */
+    .grammar-item {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+    .grammar-item strong {
+      color: #fff;
+    }
+
+    /* Activity Box */
+    .challenge-question-box {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(59, 130, 246, 0.15));
+      border: 2px solid var(--accent-blue);
+      border-radius: 20px;
+      padding: 24px 32px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .challenge-question-box h3 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 4px;
+    }
+
+    /* Checklist */
+    .checklist-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--accent-emerald);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+    .check-icon {
+      color: var(--accent-emerald);
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    /* Bottom Nav Bar */
+    .nav-bar {
+      height: 64px;
+      background: rgba(15, 23, 42, 0.9);
+      border-top: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 50;
+    }
+    .slide-counter {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    .slide-counter span {
+      color: #fff;
+    }
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .btn-primary {
+      background: var(--accent-blue);
+      color: #090d16;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #7dd3fc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <div class="deck-container">
+
+    <!-- SLIDE 1: COVER -->
+    <div class="slide active" id="slide-1">
+      <div class="cover-center">
+        <div class="cover-badge">GRADE 11 • BSB-1 PROJECT WORK</div>
+        <h1 class="cover-title">BE A BETTER FRIEND!</h1>
+        <p class="cover-sub">A student-led friendship campaign to create a kinder, safer, and more supportive classroom environment.</p>
+        
+        <div class="slogan-card">
+          <div class="slogan-label">Official Campaign Slogan</div>
+          <div class="slogan-text">“Be the friend you wish to have!”</div>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="role-title">Speaker 1 • Leader</div>
+            <div class="role-desc">Mission, Slogan & Opening</div>
+          </div>
+          <div class="team-card">
+            <div class="role-title">Speaker 2 • Rules</div>
+            <div class="role-desc">5 Golden Friendship Rules</div>
+          </div>
+          <div class="team-card">
+            <div class="role-title">Speaker 3 • Language</div>
+            <div class="role-desc">Advice & Grammar Points</div>
+          </div>
+          <div class="team-card">
+            <div class="role-title">Speaker 4 • Action</div>
+            <div class="role-desc">Challenge, Poster & Q&A</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: MISSION & CORE VALUES -->
+    <div class="slide" id="slide-2">
+      <div class="slide-header">
+        <div class="badge">Section 01</div>
+        <h2 class="slide-title">Our Campaign Mission</h2>
+        <div class="slide-subtitle">The purpose of our friendship initiative and our 5 core pillars</div>
+      </div>
+
+      <div class="statement-box">
+        “Our campaign encourages students to build stronger friendships through kindness, trust, honesty, respect, and support. A good friendship is not about being perfect; it is about being there for each other, especially when life becomes difficult.”
+      </div>
+
+      <div class="grid-5">
+        <div class="info-card" style="--card-accent: var(--accent-amber);">
+          <div style="color: var(--accent-amber); font-weight: 800; font-size: 1.2rem; margin-bottom: 6px;">01. Kindness</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">(Mehribonlik)</div>
+          <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.45;">Small everyday actions and warm words that help every classmate feel respected and appreciated.</p>
+        </div>
+        <div class="info-card" style="--card-accent: var(--accent-blue);">
+          <div style="color: var(--accent-blue); font-weight: 800; font-size: 1.2rem; margin-bottom: 6px;">02. Trust</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">(Ishonch)</div>
+          <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.45;">Keeping private secrets confidential and proving to be someone your friends can always rely on.</p>
+        </div>
+        <div class="info-card" style="--card-accent: var(--accent-emerald);">
+          <div style="color: var(--accent-emerald); font-weight: 800; font-size: 1.2rem; margin-bottom: 6px;">03. Honesty</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">(Haqiqatgo'ylik)</div>
+          <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.45;">Speaking the truth gently without spreading gossip, unnecessary drama, or rumors.</p>
+        </div>
+        <div class="info-card" style="--card-accent: var(--accent-purple);">
+          <div style="color: var(--accent-purple); font-weight: 800; font-size: 1.2rem; margin-bottom: 6px;">04. Respect</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">(Hurmat)</div>
+          <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.45;">Respecting individual differences, personal boundaries, varied viewpoints, and emotions.</p>
+        </div>
+        <div class="info-card" style="--card-accent: var(--accent-rose);">
+          <div style="color: var(--accent-rose); font-weight: 800; font-size: 1.2rem; margin-bottom: 6px;">05. Support</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">(Qo'llab-quvvatlash)</div>
+          <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.45;">Standing by your classmates during stressful exams, emotional hurdles, and difficult times.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: FIVE RULES OF FRIENDSHIP -->
+    <div class="slide" id="slide-3">
+      <div class="slide-header">
+        <div class="badge">Section 02</div>
+        <h2 class="slide-title">Five Golden Rules of Friendship</h2>
+        <div class="slide-subtitle">Essential principles every true friend should practice daily</div>
+      </div>
+
+      <div class="rules-list">
+        <div class="rule-row">
+          <div class="rule-number" style="--rule-accent: var(--accent-blue);">1</div>
+          <div class="rule-content">
+            <h4>Listen carefully</h4>
+            <p>Give your friend time to speak. Do not interrupt or judge too quickly.</p>
+          </div>
+        </div>
+        <div class="rule-row">
+          <div class="rule-number" style="--rule-accent: var(--accent-amber);">2</div>
+          <div class="rule-content">
+            <h4>Be honest and trustworthy</h4>
+            <p>Tell the truth and keep private information confidential.</p>
+          </div>
+        </div>
+        <div class="rule-row">
+          <div class="rule-number" style="--rule-accent: var(--accent-emerald);">3</div>
+          <div class="rule-content">
+            <h4>Show respect</h4>
+            <p>Respect different opinions, interests, boundaries, and feelings.</p>
+          </div>
+        </div>
+        <div class="rule-row">
+          <div class="rule-number" style="--rule-accent: var(--accent-purple);">4</div>
+          <div class="rule-content">
+            <h4>Offer support</h4>
+            <p>If your friend has a problem, ask how you can help instead of ignoring them.</p>
+          </div>
+        </div>
+        <div class="rule-row">
+          <div class="rule-number" style="--rule-accent: var(--accent-rose);">5</div>
+          <div class="rule-content">
+            <h4>Solve problems calmly</h4>
+            <p>Talk about misunderstandings politely. Apologise when you are wrong and forgive when you can.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: THREE PIECES OF ADVICE -->
+    <div class="slide" id="slide-4">
+      <div class="slide-header">
+        <div class="badge">Section 03</div>
+        <h2 class="slide-title">Three Pieces of Practical Advice</h2>
+        <div class="slide-subtitle">Realistic advice demonstrating empathy, integrity, and active inclusion</div>
+      </div>
+
+      <div class="grid-3">
+        <div class="info-card" style="--card-accent: var(--accent-blue);">
+          <span class="badge" style="margin-bottom: 12px;">Active Listening</span>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #fff;">When a Friend is Sad</h3>
+          <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 12px; margin-bottom: 14px; font-style: italic; color: #38bdf8;">
+            “If your friend feels sad, listen to them and ask what they need.”
+          </div>
+          <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 14px;">
+            Do not rush to offer unasked advice. Often, your quiet presence and active listening are the best comfort.
+          </p>
+          <div style="margin-top: auto; font-size: 0.78rem; color: var(--accent-amber); font-weight: 600;">
+            ✓ Grammar: First Conditional (If + Present)
+          </div>
+        </div>
+
+        <div class="info-card" style="--card-accent: var(--accent-amber);">
+          <span class="badge" style="margin-bottom: 12px; color: var(--accent-amber); border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.1);">Integrity & Directness</span>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #fff;">Dealing with Conflict</h3>
+          <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 12px; margin-bottom: 14px; font-style: italic; color: #f59e0b;">
+            “You should talk honestly instead of spreading rumours or making assumptions.”
+          </div>
+          <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 14px;">
+            Gossip destroys friendships. Direct and respectful one-on-one conversation resolves tensions quickly.
+          </p>
+          <div style="margin-top: auto; font-size: 0.78rem; color: var(--accent-amber); font-weight: 600;">
+            ✓ Grammar: Modal Verb (should)
+          </div>
+        </div>
+
+        <div class="info-card" style="--card-accent: var(--accent-emerald);">
+          <span class="badge" style="margin-bottom: 12px; color: var(--accent-emerald); border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.1);">Warm Inclusion</span>
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #fff;">Welcoming the Lonely</h3>
+          <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 12px; margin-bottom: 14px; font-style: italic; color: #10b981;">
+            “You could invite a lonely classmate to join your group and help them feel welcome.”
+          </div>
+          <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 14px;">
+            Nobody deserves to feel isolated. An invitation to lunch or group study makes our school a friendlier place.
+          </p>
+          <div style="margin-top: auto; font-size: 0.78rem; color: var(--accent-amber); font-weight: 600;">
+            ✓ Grammar: Modal Verb (could)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: 4 SPEAKERS CAMPAIGN SPEECH -->
+    <div class="slide" id="slide-5">
+      <div class="slide-header">
+        <div class="badge">Section 04</div>
+        <h2 class="slide-title">Short Campaign Speech (4 Speakers)</h2>
+        <div class="slide-subtitle">Structured speaking roles ensuring equal participation for all members</div>
+      </div>
+
+      <div class="grid-2x2">
+        <div class="speaker-card" style="--speaker-color: var(--accent-blue);">
+          <div class="speaker-header">
+            <span class="speaker-badge">Speaker 1 • Introduction</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Opening Lead</span>
+          </div>
+          <p class="speaker-speech">
+            “Good morning, everyone! Today, we are presenting our campaign, ‘Be a Better Friend!’ Friendship makes our lives happier and our challenges easier. However, strong friendships need time, trust, and effort. Our slogan is: ‘Be the friend you wish to have!’”
+          </p>
+        </div>
+
+        <div class="speaker-card" style="--speaker-color: var(--accent-amber);">
+          <div class="speaker-header">
+            <span class="speaker-badge" style="color: var(--accent-amber);">Speaker 2 • The Five Rules</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Rules & Examples</span>
+          </div>
+          <p class="speaker-speech">
+            “A good friend listens carefully, tells the truth, shows respect, offers support, and solves problems calmly. For example, listening is better than interrupting, and honest communication is stronger than gossip. We should respect our friends even when we have different opinions.”
+          </p>
+        </div>
+
+        <div class="speaker-card" style="--speaker-color: var(--accent-emerald);">
+          <div class="speaker-header">
+            <span class="speaker-badge" style="color: var(--accent-emerald);">Speaker 3 • Advice & Grammar</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Language Focus</span>
+          </div>
+          <p class="speaker-speech">
+            “Here are three simple tips. If your friend feels sad, listen without judging. You should speak honestly and never spread rumours. You could also invite someone who feels left out to join you. If we support one another, our classroom will become a kinder place.”
+          </p>
+        </div>
+
+        <div class="speaker-card" style="--speaker-color: var(--accent-purple);">
+          <div class="speaker-header">
+            <span class="speaker-badge" style="color: var(--accent-purple);">Speaker 4 • Call to Action</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Conclusion & Next Steps</span>
+          </div>
+          <p class="speaker-speech">
+            “Let’s take a friendship challenge! This week, do one kind thing every day: help someone, give a sincere compliment, or include a classmate in an activity. Small actions can create stronger friendships. Remember, a real friend does not have to solve every problem; sometimes, being present is enough. Be kind, be honest, and be a better friend!”
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: LANGUAGE FEATURES & GRAMMAR -->
+    <div class="slide" id="slide-6">
+      <div class="slide-header">
+        <div class="badge">Section 05</div>
+        <h2 class="slide-title">Language Features & Grammar Focus</h2>
+        <div class="slide-subtitle">Grade 11 curriculum targets demonstrated in our presentation</div>
+      </div>
+
+      <div class="grid-2x2">
+        <div class="info-card" style="--card-accent: var(--accent-blue);">
+          <h4 style="color: var(--accent-blue); font-size: 1.1rem; margin-bottom: 6px;">1. Comparatives</h4>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Used to contrast positive behaviors with harmful attitudes:</p>
+          <div class="grammar-item">• “Listening is <strong>better than</strong> interrupting.”</div>
+          <div class="grammar-item">• “Honest communication is <strong>stronger than</strong> gossip.”</div>
+          <div class="grammar-item">• “We can make a <strong>bigger</strong> difference together than alone.”</div>
+        </div>
+
+        <div class="info-card" style="--card-accent: var(--accent-amber);">
+          <h4 style="color: var(--accent-amber); font-size: 1.1rem; margin-bottom: 6px;">2. Modal Verbs</h4>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Used for giving advice, suggestions, and necessity:</p>
+          <div class="grammar-item">• “You <strong>should</strong> speak honestly instead of spreading rumours.”</div>
+          <div class="grammar-item">• “You <strong>could</strong> invite a lonely classmate to join your group.”</div>
+          <div class="grammar-item">• “A real friend <strong>does not have to</strong> solve every problem.”</div>
+        </div>
+
+        <div class="info-card" style="--card-accent: var(--accent-emerald);">
+          <h4 style="color: var(--accent-emerald); font-size: 1.1rem; margin-bottom: 6px;">3. Conditionals</h4>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Zero & First Conditionals for cause and effect:</p>
+          <div class="grammar-item">• “<strong>If</strong> your friend feels sad, listen without judging.”</div>
+          <div class="grammar-item">• “<strong>If</strong> we support one another, our classroom <strong>will become</strong> a kinder place.”</div>
+          <div class="grammar-item">• “<strong>If</strong> both friends communicate honestly, their friendship <strong>can become</strong> stronger.”</div>
+        </div>
+
+        <div class="info-card" style="--card-accent: var(--accent-purple);">
+          <h4 style="color: var(--accent-purple); font-size: 1.1rem; margin-bottom: 6px;">4. Linking Words</h4>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Connecting thoughts smoothly across sentences:</p>
+          <div class="grammar-item">• <strong>Contrast:</strong> however, instead of, even when</div>
+          <div class="grammar-item">• <strong>Exemplification:</strong> for example, such as</div>
+          <div class="grammar-item">• <strong>Cause & Conclusion:</strong> because, also, together, finally</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: INTERACTIVE CLASS ACTIVITY -->
+    <div class="slide" id="slide-7">
+      <div class="slide-header">
+        <div class="badge">Section 06</div>
+        <h2 class="slide-title">Interactive Class Activity: The Friendship Challenge</h2>
+        <div class="slide-subtitle">Engaging our audience and creating immediate positive impact</div>
+      </div>
+
+      <div class="challenge-question-box">
+        <div style="font-size: 0.82rem; text-transform: uppercase; font-weight: 800; letter-spacing: 0.12em; color: var(--accent-amber); margin-bottom: 4px;">
+          Question to Classmates
+        </div>
+        <h3>“What is one small thing you can do today to be a better friend?”</h3>
+        <p style="font-size: 0.9rem; color: #94a3b8; margin-top: 6px;">(Invite 2 or 3 classmates to share their answers with the room)</p>
+      </div>
+
+      <div class="grid-5" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+        <div class="info-card" style="--card-accent: var(--accent-blue);">
+          <span class="badge" style="margin-bottom: 8px;">Day 1 – 2</span>
+          <h4 style="font-size: 1rem; color: #fff; margin-bottom: 6px;">Sincere Compliment</h4>
+          <p style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.4;">Give a sincere compliment to a classmate you rarely talk to.</p>
+        </div>
+        <div class="info-card" style="--card-accent: var(--accent-amber);">
+          <span class="badge" style="margin-bottom: 8px; color: var(--accent-amber); border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.1);">Day 3 – 4</span>
+          <h4 style="font-size: 1rem; color: #fff; margin-bottom: 6px;">Practical Support</h4>
+          <p style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.4;">Offer help with difficult homework, notes, or carrying materials.</p>
+        </div>
+        <div class="info-card" style="--card-accent: var(--accent-emerald);">
+          <span class="badge" style="margin-bottom: 8px; color: var(--accent-emerald); border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.1);">Day 5 – 6</span>
+          <h4 style="font-size: 1rem; color: #fff; margin-bottom: 6px;">Include Someone</h4>
+          <p style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.4;">Invite someone who feels left out to sit with you or join an activity.</p>
+        </div>
+        <div class="info-card" style="--card-accent: var(--accent-purple);">
+          <span class="badge" style="margin-bottom: 8px; color: var(--accent-purple); border-color: rgba(192,132,252,0.3); background: rgba(192,132,252,0.1);">Day 7</span>
+          <h4 style="font-size: 1rem; color: #fff; margin-bottom: 6px;">Gratitude & Peace</h4>
+          <p style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.4;">Thank a friend who supported you, or resolve an old dispute calmly.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: QUESTIONS & ANSWERS (Q&A) -->
+    <div class="slide" id="slide-8">
+      <div class="slide-header">
+        <div class="badge">Section 07</div>
+        <h2 class="slide-title">Questions and Answers (Q&A)</h2>
+        <div class="slide-subtitle">Ready responses for teacher evaluations and peer inquiries</div>
+      </div>
+
+      <div class="grid-2x2">
+        <div class="info-card" style="--card-accent: var(--accent-blue);">
+          <div style="font-weight: 700; color: var(--accent-blue); font-size: 0.95rem; margin-bottom: 8px;">
+            Q: What is the most important quality in a friend?
+          </div>
+          <div style="font-size: 0.9rem; color: #fff; line-height: 1.5; margin-bottom: 6px;">
+            <strong>A:</strong> I think trust is one of the most important qualities because friends need to feel safe and respected.
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">Key idea: Trust forms the foundation of all genuine emotional connections.</p>
+        </div>
+
+        <div class="info-card" style="--card-accent: var(--accent-amber);">
+          <div style="font-weight: 700; color: var(--accent-amber); font-size: 0.95rem; margin-bottom: 8px;">
+            Q: What should you do if you disagree with a friend?
+          </div>
+          <div style="font-size: 0.9rem; color: #fff; line-height: 1.5; margin-bottom: 6px;">
+            <strong>A:</strong> We should stay calm, listen to each other, and explain our opinions politely.
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">Key idea: Differences of opinion should be celebrated, not fought over.</p>
+        </div>
+
+        <div class="info-card" style="--card-accent: var(--accent-emerald);">
+          <div style="font-weight: 700; color: var(--accent-emerald); font-size: 0.95rem; margin-bottom: 8px;">
+            Q: How can you help a lonely student?
+          </div>
+          <div style="font-size: 0.9rem; color: #fff; line-height: 1.5; margin-bottom: 6px;">
+            <strong>A:</strong> I could start a conversation, invite them to join an activity, and make them feel welcome.
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">Key idea: It only takes one welcoming person to erase loneliness.</p>
+        </div>
+
+        <div class="info-card" style="--card-accent: var(--accent-purple);">
+          <div style="font-weight: 700; color: var(--accent-purple); font-size: 0.95rem; margin-bottom: 8px;">
+            Q: Can a friendship survive a misunderstanding?
+          </div>
+          <div style="font-size: 0.9rem; color: #fff; line-height: 1.5; margin-bottom: 6px;">
+            <strong>A:</strong> Yes. If both friends communicate honestly and are willing to apologise, their friendship can become stronger.
+          </div>
+          <p style="font-size: 0.78rem; color: #94a3b8;">Key idea: Overcoming challenges together cements trust.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: TEAM WORK PLAN & POSTER LAYOUT -->
+    <div class="slide" id="slide-9">
+      <div class="slide-header">
+        <div class="badge">Section 08</div>
+        <h2 class="slide-title">Team Work Plan & Poster Layout</h2>
+        <div class="slide-subtitle">Clear project governance and visual poster blueprint</div>
+      </div>
+
+      <div class="grid-split">
+        <!-- Work plan -->
+        <div class="info-card" style="--card-accent: var(--accent-blue);">
+          <h4 style="color: var(--accent-blue); font-size: 1.1rem; margin-bottom: 12px;">Team Roles & Responsibilities</h4>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.86rem; color: #e2e8f0;">
+            <div><strong>• Member 1 (Leader):</strong> Mission, slogan, opening speech.</div>
+            <div><strong>• Member 2 (Rules Specialist):</strong> 5 friendship rules & examples.</div>
+            <div><strong>• Member 3 (Advice & Grammar):</strong> 3 tips, grammar analysis, challenge.</div>
+            <div><strong>• Member 4 (Conclusion & Design):</strong> Closing speech, poster design, Q&A.</div>
+          </div>
+          <div style="margin-top: 16px; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 10px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.45;">
+            <strong style="color: #fff;">Team Agreement:</strong> We listen to everyone’s ideas, divide the work fairly, practise together, speak English, and resolve disagreements respectfully.
+          </div>
+        </div>
+
+        <!-- Poster preview -->
+        <div style="background: rgba(15,23,42,0.9); border: 2px dashed rgba(245,158,11,0.5); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; text-align: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 4px;">BE A BETTER FRIEND!</div>
+            <div style="font-size: 0.7rem; letter-spacing: 0.08em; font-weight: 700; color: var(--accent-amber);">
+              BE KIND • BE HONEST • SHOW RESPECT • OFFER SUPPORT
+            </div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.04); border-radius: 10px; padding: 12px; margin: 10px 0; text-align: left; font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+            <strong style="color: var(--accent-blue); display: block; margin-bottom: 4px;">OUR 5 RULES:</strong>
+            1. Listen carefully. 2. Be honest & trustworthy. 3. Show respect. 4. Offer support. 5. Solve problems calmly.
+          </div>
+
+          <div style="font-size: 0.78rem; color: #94a3b8; font-style: italic;">
+            3 TIPS: Listen without judging • Speak honestly • Include someone who feels left out.
+          </div>
+
+          <div style="font-weight: 800; color: var(--accent-amber); font-size: 1.05rem; margin-top: 6px;">
+            “Be the friend you wish to have!”
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: CHECKLIST & CONCLUSION -->
+    <div class="slide" id="slide-10">
+      <div class="slide-header">
+        <div class="badge">Section 09</div>
+        <h2 class="slide-title">Final Checklist & Conclusion</h2>
+        <div class="slide-subtitle">BSB-1 project criteria compliance and closing thoughts</div>
+      </div>
+
+      <div class="checklist-container">
+        <div class="check-item"><span class="check-icon">✓</span> The poster has a clear title and inspiring slogan.</div>
+        <div class="check-item"><span class="check-icon">✓</span> All five friendship rules are thoroughly included and explained.</div>
+        <div class="check-item"><span class="check-icon">✓</span> Three actionable pieces of advice are demonstrated with grammar structures.</div>
+        <div class="check-item"><span class="check-icon">✓</span> All four members have an active speaking role in fluent English.</div>
+        <div class="check-item"><span class="check-icon">✓</span> Comparatives, modals, and conditionals are used accurately.</div>
+        <div class="check-item"><span class="check-icon">✓</span> The group has practised pronunciation, eye contact, and timing.</div>
+        <div class="check-item"><span class="check-icon">✓</span> Everyone is ready to answer questions during Q&A.</div>
+      </div>
+
+      <div style="margin-top: auto; text-align: center; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 18px; padding: 20px;">
+        <div style="font-size: 1.2rem; font-style: italic; color: #fff; margin-bottom: 8px;">
+          “Remember, a real friend does not have to solve every problem; sometimes, being present is enough.”
+        </div>
+        <div style="font-weight: 800; color: var(--accent-blue); letter-spacing: 0.05em; font-size: 1.1rem;">
+          THANK YOU FOR LISTENING! • BE KIND, BE HONEST, BE A BETTER FRIEND!
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="nav-bar">
+    <div class="slide-counter">
+      Slide <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">10</span>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn" id="prevBtn" onclick="prevSlide()">← Previous</button>
+      <button class="btn btn-primary" id="nextBtn" onclick="nextSlide()">Next →</button>
+      <button class="btn" onclick="toggleFullScreen()">⛶ Fullscreen</button>
+      <a href="Be_A_Better_Friend_Presentation.pptx" download class="btn" style="text-decoration: none; color: white;">💾 Download PPTX</a>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 10;
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
+
+      document.querySelectorAll('.slide').forEach((s, idx) => {
+        s.classList.toggle('active', (idx + 1) === currentSlide);
+      });
+
+      document.getElementById('currentSlideNum').innerText = currentSlide;
+      document.getElementById('progressBar').style.width = ((currentSlide / totalSlides) * 100) + '%';
+      
+      document.getElementById('prevBtn').disabled = (currentSlide === 1);
+      document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullScreen();
+      }
+    });
+
+    showSlide(1);
+  </script>
+</body>
+</html>

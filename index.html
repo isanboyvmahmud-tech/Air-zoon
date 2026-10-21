@@ -133,9 +133,25 @@
       <div class="hero-main-grid">
         <!-- Hero Text & Filters Column -->
         <div class="hero-text-col">
-          <div class="hero-pill">
-            <span class="hero-pill-dot"></span>
-            <span>Faqat Erkaklar va O'g'il Bolalar Do'koni</span>
+          <div class="hero-top-badges-row">
+            <div class="hero-pill">
+              <span class="hero-pill-dot"></span>
+              <span>Faqat Erkaklar va O'g'il Bolalar Do'koni</span>
+            </div>
+
+            <!-- Left-Side Top QR Code Interactive Badge -->
+            <div class="hero-qr-badge" id="heroQrBadge" title="Mobil sayt QR kodi (Kattalashtirish uchun bosing)">
+              <div class="hero-qr-thumb">
+                <img src="images/nike-qr-code.svg" alt="Nike QR Code" class="hero-qr-img">
+              </div>
+              <div class="hero-qr-info">
+                <div class="hero-qr-tag-line">
+                  <span class="qr-pulse-dot"></span>
+                  <span class="hero-qr-tag">MOBIL SAYT QR</span>
+                </div>
+                <span class="hero-qr-sub">Telefonda ochish 📱</span>
+              </div>
+            </div>
           </div>
           <h1 class="hero-title">
             JUST DO IT.
@@ -575,6 +591,70 @@
       <button class="btn-primary" id="successModalClose" style="width: 100%;">
         Xaridni davom ettirish
       </button>
+    </div>
+  </div>
+
+  <!-- Fixed Floating Left QR Code Quick Widget (Chap taraf teparoqdagi joy) -->
+  <aside class="floating-left-qr" id="floatingLeftQr" aria-label="Mobil sayt QR kodi">
+    <div class="floating-qr-trigger" id="floatingQrTrigger" title="Telefonda ochish (QR Kod)">
+      <div class="floating-qr-thumb-box">
+        <img src="images/nike-qr-code.svg" alt="Nike QR Kod" class="floating-qr-thumb-img">
+      </div>
+      <div class="floating-qr-text-col">
+        <span class="f-qr-tag">📱 MOBIL QR</span>
+        <span class="f-qr-title">Telefonda ochish</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- QR Code Interactive Zoom Modal -->
+  <div class="modal-overlay" id="qrModal">
+    <div class="modal-card qr-modal-card">
+      <button class="modal-close-btn" id="qrModalClose">&times;</button>
+      <div class="qr-modal-header">
+        <div class="qr-modal-tag">
+          <span class="qr-pulse-dot"></span>
+          <span>NIKE MEN • RASMIY QR</span>
+        </div>
+        <h2 class="qr-modal-title">Saytni Telefonda Ochish</h2>
+        <p class="qr-modal-desc">Kamerangizni ushbu QR kodga qarating yoki havolani nusxalang</p>
+      </div>
+
+      <div class="qr-modal-body">
+        <div class="qr-frame-box">
+          <img src="images/nike-qr-code.svg" alt="Nike QR Kod" class="qr-large-img">
+          <div class="qr-laser-scanner" aria-hidden="true"></div>
+        </div>
+
+        <div class="qr-guide-grid">
+          <div class="qr-guide-item">
+            <span class="qr-guide-num">1</span>
+            <span>Kamerani oching</span>
+          </div>
+          <div class="qr-guide-item">
+            <span class="qr-guide-num">2</span>
+            <span>QR kodga qarating</span>
+          </div>
+          <div class="qr-guide-item">
+            <span class="qr-guide-num">3</span>
+            <span>Saytga kiring</span>
+          </div>
+        </div>
+
+        <div class="qr-promo-highlight">
+          <span>Promokod:</span>
+          <strong>NIKE2026 (-10% chegirma)</strong>
+        </div>
+
+        <div class="qr-modal-buttons">
+          <button type="button" class="btn-primary" id="qrCopyBtn" style="flex:1;">
+            📋 Havolani nusxalash
+          </button>
+          <button type="button" class="btn-secondary" id="qrDismissBtn">
+            Yopish
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -93,6 +93,13 @@
     successModal: document.getElementById('successModal'),
     successModalClose: document.getElementById('successModalClose'),
     successOrderNum: document.getElementById('successOrderNum'),
+    // QR Code Elements
+    heroQrBadge: document.getElementById('heroQrBadge'),
+    floatingQrTrigger: document.getElementById('floatingQrTrigger'),
+    qrModal: document.getElementById('qrModal'),
+    qrModalClose: document.getElementById('qrModalClose'),
+    qrDismissBtn: document.getElementById('qrDismissBtn'),
+    qrCopyBtn: document.getElementById('qrCopyBtn'),
     toastContainer: document.getElementById('toastContainer'),
     // Filter Drawer Toggle & Subfilters
     filterToggleBtn: document.getElementById('filterToggleBtn'),
@@ -965,12 +972,68 @@
       document.body.style.overflow = '';
     });
 
+    // QR Code Modal Handlers
+    function openQrModal() {
+      if (els.qrModal) {
+        els.qrModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeQrModal() {
+      if (els.qrModal) {
+        els.qrModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (els.heroQrBadge) {
+      els.heroQrBadge.addEventListener('click', openQrModal);
+    }
+
+    if (els.floatingQrTrigger) {
+      els.floatingQrTrigger.addEventListener('click', openQrModal);
+    }
+
+    if (els.qrModalClose) {
+      els.qrModalClose.addEventListener('click', closeQrModal);
+    }
+
+    if (els.qrDismissBtn) {
+      els.qrDismissBtn.addEventListener('click', closeQrModal);
+    }
+
+    if (els.qrModal) {
+      els.qrModal.addEventListener('click', (e) => {
+        if (e.target === els.qrModal) closeQrModal();
+      });
+    }
+
+    if (els.qrCopyBtn) {
+      els.qrCopyBtn.addEventListener('click', () => {
+        const urlToCopy = window.location.href.startsWith('http') 
+          ? window.location.href 
+          : 'https://nike-men-uzbekistan.shop';
+        navigator.clipboard.writeText(urlToCopy).then(() => {
+          showToast('📋 Sayt havolasi nusxalandi!', '✓');
+          const originalText = els.qrCopyBtn.innerHTML;
+          els.qrCopyBtn.innerHTML = '✓ Nusxalandi!';
+          setTimeout(() => {
+            els.qrCopyBtn.innerHTML = originalText;
+          }, 2000);
+        }).catch(() => {
+          showToast('Havola: ' + urlToCopy);
+        });
+      });
+    }
+
     // Keyboard ESC listener
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeDetailModal();
         closeCart();
         closeWishlist();
+        closeQrModal();
         els.checkoutModal.classList.remove('active');
         els.successModal.classList.remove('active');
         document.body.style.overflow = '';
